@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>
+        Home
+    </title>
+</head>
+<body>
+    <p>
+        {% if request.session.name %}
+            <a href="{% url 'logout-request' %}"> Logout </a><br>
+            <a href="{% url 'addbank-request' %}"> Add Bank </a>
+        {% else %}
+            <a href="{% url 'login-request' %}"> Login </a><br>
+            <a href="{% url 'register-request' %}"> Register </a>
+        {% endif %}
+    </p>
+    <p>
+    {% if request.session.name %}
+        <h1> {{ request.session.name }}, welcome to Index Page </h1>
+    {% else %}
+        <h1> User, welcome to Index Page </h1>
+    {% endif %}
+    </p>
+
+    
+</body>
+</html>
